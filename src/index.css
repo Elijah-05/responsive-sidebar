@@ -7,3 +7,12 @@
   line-height: 1.5;
   font-weight: 400;
 }
+
+@layer components {
+  .fully-center {
+    @apply flex items-center justify-center;
+  }
+  .stroke {
+    @apply border border-red-500;
+  }
+}

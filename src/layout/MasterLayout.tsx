@@ -1,7 +1,11 @@
+import SideBar from "../components/side_bar/SideBar";
+
 const MasterLayout = () => {
   return (
     <div>
-      <aside className=""></aside>
+      <aside className="">
+        <SideBar />
+      </aside>
       <main className=""></main>
     </div>
   );
