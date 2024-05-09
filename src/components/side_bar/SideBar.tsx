@@ -1,34 +1,116 @@
-import { Chevron, Profile, SearchIcon } from "../../assets";
+import {
+  Chevron,
+  DashboardIcon,
+  GraphIcon,
+  MessageIcon,
+  NotificationIcon,
+  PlusIcon,
+  Profile,
+  SettingIcon,
+  WalletIcon,
+} from "../../assets";
+import { CollapsePropsType } from "../../utils/types/types";
 import Avatar from "../avatar/Avatar";
+import List from "../list/List";
+import Search from "../search/Search";
 import ThemeSwitch from "../switch/ThemeSwitch";
 
-const SideBar = () => {
+const SideBar = ({ isCollapsed, toggleSideBar }: CollapsePropsType) => {
   return (
-    <div className="bg-gradient-to-t from-[#08182E] to-[#091A32] fixed h-full top-0 left-0 w-[310px] pt-14 rounded-2xl">
-      <div className="relative pl-6">
-        <div className="flex items-center gap-3 ">
-          <Avatar src={Profile} />
-          <div className="text-white leading-3">
-            <h1 className="text-lg font-semibold">Elijah Abebe</h1>
-            <p className="text-sm opacity-50">Front-End Developer</p>
+    <div
+      className={` ${
+        isCollapsed ? "w-28" : "w-[330px]"
+      } bg-gradient-to-t from-[#08182E] to-[#091A32] fixed h-full top-0 left-0 pt-14 rounded-2xl transition-all duration-500`}
+    >
+      <div
+        className={`relative ${
+          isCollapsed ? "pl-5" : "pl-6"
+        } transition-all duration-300 `}
+      >
+        <div className={`flex items-center gap-3 w-[100%] overflow-hidden`}>
+          <Avatar src={Profile} isCollapsed={isCollapsed} />
+          <div className={`text-white transition-all shrink-0 duration-100`}>
+            <h1
+              className={`text-lg font-semibold ${
+                isCollapsed ? "text-[0rem] opacity-0" : "opacity-100"
+              } duration-500`}
+            >
+              Elijah Abebe
+            </h1>
+            <p
+              className={`text-sm ${
+                isCollapsed ? "text-[0rem] opacity-0" : "opacity-50"
+              } duration-500`}
+            >
+              Front-End Developer
+            </p>
           </div>
         </div>
-        <button className="group absolute h-10 w-10 transition-all fully-center top-0 translate-y-1/2 right-0 bg-green-600 rounded-l-full duration-300">
-          <Chevron className="text-[33px] -scale-100 text-white" />
+        <button
+          onClick={() => toggleSideBar(!isCollapsed)}
+          className={`group absolute h-10 fully-center bottom-1/2 translate-y-1/2 right-0 ${
+            isCollapsed
+              ? "translate-x-full rounded-r-full w-7 pr-1"
+              : "rounded-l-full w-10"
+          } bg-green-600 transition-all duration-500`}
+        >
+          <Chevron
+            className={`text-[33px] ${
+              !isCollapsed ? "-scale-95" : "scale-90"
+            } text-white`}
+          />
         </button>
       </div>
       <div className={`px-5 mt-10`}>
-        <div
-          className={`bg-slate-800 flex items-center gap-3 px-4 py-3 rounded-3xl shadow-inner border-b-2 border-slate-500`}
-        >
-          <SearchIcon className={`text-slate-400`} />
-          <input
-            type="text"
-            className={`bg-slate-800 placeholder:text-slate-300`}
-            placeholder="Search"
+        <Search isCollapsed={isCollapsed} toggleSideBar={toggleSideBar} />
+        <div className="space-y-3 my-6 ">
+          <List
+            isCollapsed={isCollapsed}
+            icon1={<DashboardIcon className="text-2xl text-white" />}
+            label="Dashboard"
+          />
+          <List
+            isCollapsed={isCollapsed}
+            icon1={<MessageIcon className="text-2xl text-white" />}
+            icon2={
+              <div className="flex gap-3 flex-row-reverse">
+                <div className="text-white fully-center bg-red-500 w-6 h-6 scale-90 rounded-full">
+                  5
+                </div>
+                <div className="border p-[2px] rounded-md">
+                  <PlusIcon className="text-lg text-white" />
+                </div>
+              </div>
+            }
+            label="Message"
+          />
+          <List
+            isCollapsed={isCollapsed}
+            icon1={<NotificationIcon className="text-2xl text-white" />}
+            icon2={
+              <div className="text-white fully-center bg-red-500 w-6 h-6 scale-90 rounded-full">
+                5
+              </div>
+            }
+            label="Notification"
+          />
+          <List
+            isCollapsed={isCollapsed}
+            icon1={<GraphIcon className="text-2xl text-white" />}
+            label="Statistics"
+          />
+          <List
+            isCollapsed={isCollapsed}
+            icon1={<WalletIcon className="text-2xl text-white" />}
+            label="Wallet"
+          />
+          <List
+            isCollapsed={isCollapsed}
+            icon1={<SettingIcon className="text-2xl text-white" />}
+            label="Settings"
           />
         </div>
-        <ThemeSwitch />
+        <ThemeSwitch isCollapsed={isCollapsed} toggleSideBar={toggleSideBar} />
       </div>
     </div>
   );

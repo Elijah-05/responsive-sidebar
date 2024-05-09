@@ -3,7 +3,7 @@ import MasterLayout from "./layout/MasterLayout";
 
 const App = () => {
   return (
-    <div>
+    <div className={`min-h-screen bg-slate-600`}>
       <Routes>
         <Route path="/*" element={<MasterLayout />}>
           <Route index element={<div>Home</div>} />
