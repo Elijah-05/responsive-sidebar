@@ -6,7 +6,7 @@ const Avatar = ({
   isCollapsed: boolean;
 }) => {
   return (
-    <div className="relative shrink-0 w-[70px] h-[70px] fully-center rounded-full ">
+    <div className="group relative shrink-0 w-[70px] h-[70px] fully-center rounded-full ">
       <img
         src={src}
         className="w-14 rounded-full h-14 object-cover"
@@ -19,6 +19,7 @@ const Avatar = ({
       >
         <div className="bg-gradient-to-t from-[#08182E] to-[#091A32] w-full h-full rounded-full" />
       </div>
+      <div className="absolute top-1 right-1 translate-y- w-3 h-3 bg-green-400 shrink-0 rounded-full" />
     </div>
   );
 };

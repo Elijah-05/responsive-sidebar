@@ -19,7 +19,7 @@ const List = ({ icon1, icon2, label, isCollapsed }: ListPropType) => {
       >
         <button
           className={`relative shrink-0 ${
-            isCollapsed ? "  scale-110" : "scale-100"
+            isCollapsed ? "scale-110 group-hover:scale-[1.35]" : "scale-100"
           } duration-500`}
         >
           {icon1}
@@ -27,7 +27,7 @@ const List = ({ icon1, icon2, label, isCollapsed }: ListPropType) => {
         <p
           className={`text-white  ${
             isCollapsed
-              ? "w-0 text-[0rem] opacity-50 group-hover:text-base group-hover:scale-100 group-hover:w-auto group-hover:opacity-100 group-hover:translate-x-14 duration-300"
+              ? "w-0 text-[0rem] opacity-50 group-hover:text-base group-hover:scale-100 group-hover:w-auto group-hover:opacity-100 group-hover:translate-x-11 duration-300"
               : "w-auto opacity-100 duration-500 "
           } origin-left`}
         >

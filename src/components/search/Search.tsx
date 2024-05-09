@@ -40,7 +40,7 @@ const Search = ({ isCollapsed, toggleSideBar }: CollapsePropsType) => {
       <span
         className={`absolute scale-0 opacity-0 ${
           isCollapsed &&
-          "group-hover:scale-100 group-hover:opacity-100 group-hover: group-hover:translate-x-20"
+          "group-hover:scale-100 group-hover:opacity-100 group-hover: group-hover:translate-x-[86px]"
         } text-white duration-300`}
       >
         Search

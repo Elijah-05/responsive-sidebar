@@ -1,4 +1,4 @@
-import Profile from "./images/girl_profile.jpg";
+import Profile from "./images/profile2.jpg";
 import { LuChevronsRight as Chevron } from "react-icons/lu";
 import {
   IoSearchOutline as SearchIcon,
@@ -12,6 +12,7 @@ import { LuPlus as PlusIcon } from "react-icons/lu";
 import { RiSettings3Fill as SettingIcon } from "react-icons/ri";
 import { FaWallet as WalletIcon } from "react-icons/fa";
 import { IoIosNotifications as NotificationIcon } from "react-icons/io";
+import { CgArrowsExchangeV as ExchangeIcon } from "react-icons/cg";
 
 export {
   Profile,
@@ -26,4 +27,5 @@ export {
   GraphIcon,
   WalletIcon,
   NotificationIcon,
+  ExchangeIcon,
 };

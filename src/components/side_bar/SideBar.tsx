@@ -1,6 +1,7 @@
 import {
   Chevron,
   DashboardIcon,
+  ExchangeIcon,
   GraphIcon,
   MessageIcon,
   NotificationIcon,
@@ -31,7 +32,7 @@ const SideBar = ({ isCollapsed, toggleSideBar }: CollapsePropsType) => {
           <Avatar src={Profile} isCollapsed={isCollapsed} />
           <div className={`text-white transition-all shrink-0 duration-100`}>
             <h1
-              className={`text-lg font-semibold ${
+              className={`text-xl font-semibold ${
                 isCollapsed ? "text-[0rem] opacity-0" : "opacity-100"
               } duration-500`}
             >
@@ -48,16 +49,21 @@ const SideBar = ({ isCollapsed, toggleSideBar }: CollapsePropsType) => {
         </div>
         <button
           onClick={() => toggleSideBar(!isCollapsed)}
-          className={`group absolute h-10 fully-center bottom-1/2 translate-y-1/2 right-0 ${
+          className={`group absolute h-9 fully-center bottom-1/2 translate-y-1/2 right-0 ${
             isCollapsed
-              ? "translate-x-full rounded-r-full w-7 pr-1"
-              : "rounded-l-full w-10"
+              ? "translate-x-full rounded-r-full w-7"
+              : "rounded-l-full w-8"
           } bg-green-600 transition-all duration-500`}
         >
           <Chevron
-            className={`text-[33px] ${
-              !isCollapsed ? "-scale-95" : "scale-90"
-            } text-white`}
+            className={`text-[30px] ${
+              !isCollapsed ? "-scale-95 translate-x-1" : "scale-90"
+            } text-white duration-300`}
+          />
+          <div
+            className={`absolute h-full w-2 ${
+              isCollapsed ? "-z-10" : "translate-x-[18px]"
+            } bg-green-600 rounded-r-full  duration-500`}
           />
         </button>
       </div>
@@ -75,9 +81,9 @@ const SideBar = ({ isCollapsed, toggleSideBar }: CollapsePropsType) => {
             icon2={
               <div className="flex gap-3 flex-row-reverse">
                 <div className="text-white fully-center bg-red-500 w-6 h-6 scale-90 rounded-full">
-                  5
+                  3
                 </div>
-                <div className="border p-[2px] rounded-md">
+                <div className="border p-[2px] scale-[0.85] rounded-md">
                   <PlusIcon className="text-lg text-white" />
                 </div>
               </div>
@@ -89,7 +95,7 @@ const SideBar = ({ isCollapsed, toggleSideBar }: CollapsePropsType) => {
             icon1={<NotificationIcon className="text-2xl text-white" />}
             icon2={
               <div className="text-white fully-center bg-red-500 w-6 h-6 scale-90 rounded-full">
-                5
+                7
               </div>
             }
             label="Notification"
@@ -102,6 +108,7 @@ const SideBar = ({ isCollapsed, toggleSideBar }: CollapsePropsType) => {
           <List
             isCollapsed={isCollapsed}
             icon1={<WalletIcon className="text-2xl text-white" />}
+            icon2={<ExchangeIcon className="text-2xl text-white" />}
             label="Wallet"
           />
           <List
