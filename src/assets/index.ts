@@ -10,9 +10,17 @@ import { RiDashboardFill as DashboardIcon } from "react-icons/ri";
 import { MdMessage as MessageIcon } from "react-icons/md";
 import { LuPlus as PlusIcon } from "react-icons/lu";
 import { RiSettings3Fill as SettingIcon } from "react-icons/ri";
-import { FaWallet as WalletIcon } from "react-icons/fa";
-import { IoIosNotifications as NotificationIcon } from "react-icons/io";
+import {
+  FaWallet as WalletIcon,
+  FaLinkedin as Linkedin,
+  FaGithub as Github,
+} from "react-icons/fa";
+import {
+  IoIosNotifications as NotificationIcon,
+  IoLogoWhatsapp as WhatsApp,
+} from "react-icons/io";
 import { CgArrowsExchangeV as ExchangeIcon } from "react-icons/cg";
+import { FaXTwitter as Twitter } from "react-icons/fa6";
 
 export {
   Profile,
@@ -28,4 +36,8 @@ export {
   WalletIcon,
   NotificationIcon,
   ExchangeIcon,
+  Linkedin,
+  Github,
+  WhatsApp,
+  Twitter,
 };

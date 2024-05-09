@@ -1,16 +1,27 @@
 import { ReactNode } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export interface ListPropType {
+  isActive?: boolean;
   icon1?: ReactNode;
   icon2?: ReactNode;
   label: string;
   isCollapsed: boolean;
   toggleCollapse?: (state: boolean) => void;
+  path?: string;
 }
-const List = ({ icon1, icon2, label, isCollapsed }: ListPropType) => {
+const List = ({ icon1, icon2, label, isCollapsed, path }: ListPropType) => {
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+
+  const isActive = path === pathname.replace("/", "") || path === pathname;
+
   return (
     <div
-      className={`relative group py-3 px-3 flex justify-between items-center cursor-pointer rounded-xl border border-slate-500 transition-all`}
+      onClick={() => path && navigate(path)}
+      className={`relative group py-3 px-3 ${
+        isActive ? "bg-blue-600" : "hover:bg-blue-600 hover:bg-opacity-30"
+      } flex justify-between items-center cursor-pointer rounded-xl borde border-slate-500 transition-all duration-500`}
     >
       <div
         className={`flex gap-3 ${
@@ -36,7 +47,7 @@ const List = ({ icon1, icon2, label, isCollapsed }: ListPropType) => {
       </div>
       <button
         className={`shrink-0 ${
-          isCollapsed ? "w-0 opacity-0" : "scale-100 opacity-100"
+          isCollapsed ? "scale-0 opacity-0" : "scale-100 opacity-100"
         } mr-3 duration-500`}
       >
         {icon2}

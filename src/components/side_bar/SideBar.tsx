@@ -2,13 +2,17 @@ import {
   Chevron,
   DashboardIcon,
   ExchangeIcon,
+  Github,
   GraphIcon,
+  Linkedin,
   MessageIcon,
   NotificationIcon,
   PlusIcon,
   Profile,
   SettingIcon,
+  Twitter,
   WalletIcon,
+  WhatsApp,
 } from "../../assets";
 import { CollapsePropsType } from "../../utils/types/types";
 import Avatar from "../avatar/Avatar";
@@ -30,13 +34,15 @@ const SideBar = ({ isCollapsed, toggleSideBar }: CollapsePropsType) => {
       >
         <div className={`flex items-center gap-3 w-[100%] overflow-hidden`}>
           <Avatar src={Profile} isCollapsed={isCollapsed} />
-          <div className={`text-white transition-all shrink-0 duration-100`}>
+          <div
+            className={`text-white transition-all shrink-0 duration-100 leading-7`}
+          >
             <h1
-              className={`text-xl font-semibold ${
+              className={`text-[1.34rem] font-semibold ${
                 isCollapsed ? "text-[0rem] opacity-0" : "opacity-100"
-              } duration-500`}
+              } duration-500 tracking-wider`}
             >
-              Elijah Abebe
+              Elyas Abebe
             </h1>
             <p
               className={`text-sm ${
@@ -74,13 +80,17 @@ const SideBar = ({ isCollapsed, toggleSideBar }: CollapsePropsType) => {
             isCollapsed={isCollapsed}
             icon1={<DashboardIcon className="text-2xl text-white" />}
             label="Dashboard"
+            path="/"
           />
           <List
             isCollapsed={isCollapsed}
             icon1={<MessageIcon className="text-2xl text-white" />}
             icon2={
-              <div className="flex gap-3 flex-row-reverse">
-                <div className="text-white fully-center bg-red-500 w-6 h-6 scale-90 rounded-full">
+              <div
+                onClick={(e) => e.stopPropagation()}
+                className="flex gap-3 flex-row-reverse"
+              >
+                <div className="text-white fully-center bg-red-500 w-6 h-6 scale-[0.83] rounded-full">
                   3
                 </div>
                 <div className="border p-[2px] scale-[0.85] rounded-md">
@@ -89,35 +99,61 @@ const SideBar = ({ isCollapsed, toggleSideBar }: CollapsePropsType) => {
               </div>
             }
             label="Message"
+            path="message"
           />
           <List
             isCollapsed={isCollapsed}
-            icon1={<NotificationIcon className="text-2xl text-white" />}
+            icon1={
+              <NotificationIcon className="text-2xl scale-[1.23] text-white" />
+            }
             icon2={
-              <div className="text-white fully-center bg-red-500 w-6 h-6 scale-90 rounded-full">
+              <div className="text-white fully-center bg-red-500 w-6 h-6 scale-[0.83] rounded-full">
                 7
               </div>
             }
             label="Notification"
+            path="notification"
           />
           <List
             isCollapsed={isCollapsed}
             icon1={<GraphIcon className="text-2xl text-white" />}
             label="Statistics"
+            path="statistics"
           />
           <List
             isCollapsed={isCollapsed}
             icon1={<WalletIcon className="text-2xl text-white" />}
             icon2={<ExchangeIcon className="text-2xl text-white" />}
             label="Wallet"
+            path="wallet"
           />
           <List
             isCollapsed={isCollapsed}
             icon1={<SettingIcon className="text-2xl text-white" />}
             label="Settings"
+            path="settings"
           />
         </div>
         <ThemeSwitch isCollapsed={isCollapsed} toggleSideBar={toggleSideBar} />
+        <div
+          className={`${
+            isCollapsed ? "opacity-0 text-[0rem]" : "text-xs opacity-100"
+          } absolute shrink-0 left-0 right-0 bottom-7 px-6 text-white grow transition-all duration-500`}
+        >
+          <p className=" opacity-35 text-center">
+            Design & Developed by Elyas Abebe
+          </p>
+          <div
+            className={`fully-center ${
+              isCollapsed ? "scale-0" : "scale-100"
+            } text-sm mt-3 gap-4 opacity-40 duration-300`}
+          >
+            <Linkedin className="" />
+            <Github className="" />
+            <Twitter className="" />
+            <WhatsApp className="" />
+          </div>
+        </div>
       </div>
     </div>
   );

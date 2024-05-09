@@ -1,5 +1,6 @@
 import { useState } from "react";
 import SideBar from "../components/side_bar/SideBar";
+import { Outlet } from "react-router-dom";
 
 const MasterLayout = () => {
   const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
@@ -16,7 +17,9 @@ const MasterLayout = () => {
           toggleSideBar={handleSideBarToggle}
         />
       </aside>
-      <main className=""></main>
+      <main className="ml-96 stroke h-screen">
+        <Outlet />
+      </main>
     </div>
   );
 };

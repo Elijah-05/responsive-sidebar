@@ -13,7 +13,7 @@ const ThemeSwitch = ({ isCollapsed }: CollapsePropsType) => {
     <div
       className={`flex items-center justify-evenly ${
         isCollapsed ? "h-[64px] scale-[0.8]" : "w-auto"
-      } absolute bottom-5 overflow-hidden left-6 right-6 border-2 border-[#ffffff30] h-12 grow rounded-full duration-500`}
+      } absolute bottom-20 overflow-hidden left-6 right-6 border-2 border-[#ffffff30] h-12 grow rounded-full duration-500`}
     >
       <button
         onClick={() => setIsDark(false)}
