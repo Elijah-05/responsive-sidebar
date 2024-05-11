@@ -23,6 +23,11 @@ const ThemePage = () => {
           onClick={() => switchTheme(themes.lightPalette, false)}
         />
         <ThemeCard
+          color="bg-[#091A32]"
+          label="Dark Blue"
+          onClick={() => switchTheme(themes.darkPalette, true)}
+        />
+        <ThemeCard
           color="bg-[#12D2ED]"
           label="Yellow"
           onClick={() => switchTheme(themes.aqua, true)}
