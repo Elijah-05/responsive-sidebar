@@ -10,13 +10,62 @@ const App = () => {
     <div className={`min-h-screen ${theme.main_bg}`}>
       <Routes>
         <Route path="/*" element={<MasterLayout />}>
-          <Route index element={<div>Dashboard</div>} />
-          <Route path="message" element={<div>Message</div>} />
-          <Route path="message/new" element={<div>New Message</div>} />
-          <Route path="notification" element={<div>Notification</div>} />
-          <Route path="statistics" element={<div>Statistics</div>} />
-          <Route path="wallet" element={<div>Wallet</div>} />
-          <Route path="settings" element={<div>Settings</div>} />
+          <Route
+            index
+            element={
+              <div className={`${theme.light_text} text-3xl font-semibold`}>
+                Dashboard
+              </div>
+            }
+          />
+          <Route
+            path="message"
+            element={
+              <div className={`${theme.light_text} text-3xl font-semibold`}>
+                Message
+              </div>
+            }
+          />
+          <Route
+            path="message/new"
+            element={
+              <div className={`${theme.light_text} text-3xl font-semibold`}>
+                New Message
+              </div>
+            }
+          />
+          <Route
+            path="notification"
+            element={
+              <div className={`${theme.light_text} text-3xl font-semibold`}>
+                Notification
+              </div>
+            }
+          />
+          <Route
+            path="statistics"
+            element={
+              <div className={`${theme.light_text} text-3xl font-semibold`}>
+                Statistics
+              </div>
+            }
+          />
+          <Route
+            path="wallet"
+            element={
+              <div className={`${theme.light_text} text-3xl font-semibold`}>
+                Wallet
+              </div>
+            }
+          />
+          <Route
+            path="settings"
+            element={
+              <div className={`${theme.light_text} text-3xl font-semibold`}>
+                Settings
+              </div>
+            }
+          />
           <Route path="theme" element={<ThemePage />} />
         </Route>
       </Routes>

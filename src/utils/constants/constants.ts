@@ -4,7 +4,7 @@ const themes: ThemeTypes = {
   lightPalette: {
     main_bg: "bg-slate-300",
     sidebar_bg: "bg-slate-100",
-    active_list_bg: "bg-green-500",
+    active_list_bg: "bg-slate-600",
     hover_list_bg: "group-hover:bg-[]",
 
     profile_ring:
