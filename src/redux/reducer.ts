@@ -2,13 +2,21 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { themes } from "../utils/constants/constants";
 import { ThemePropTypes } from "../utils/types/types";
 
-const initialState: ThemePropTypes = themes.darkPalette;
+interface ThemeStateType {
+  isDark: boolean;
+  theme: ThemePropTypes;
+}
+
+const initialState: ThemeStateType = {
+  isDark: false,
+  theme: themes.lightPalette,
+};
 
 const themeSlice = createSlice({
   name: "theme",
   initialState,
   reducers: {
-    changeTheme: (state, action: PayloadAction<ThemePropTypes>) => {
+    changeTheme: (state, action: PayloadAction<ThemeStateType>) => {
       state = action.payload;
       return state;
     },

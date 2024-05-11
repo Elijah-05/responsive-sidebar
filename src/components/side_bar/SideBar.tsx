@@ -21,7 +21,7 @@ import ThemeSwitch from "../switch/ThemeSwitch";
 import SideBarFooter from "./SideBarFooter";
 
 const SideBar = ({ isCollapsed, toggleSideBar }: CollapsePropsType) => {
-  const theme = useAppSelector((state) => state.theme);
+  const theme = useAppSelector(({ theme: { theme } }) => theme);
   const navigate = useNavigate();
 
   const handleInnerNavigate = (
@@ -46,7 +46,7 @@ const SideBar = ({ isCollapsed, toggleSideBar }: CollapsePropsType) => {
         <div className={`flex items-center gap-3 w-[100%] overflow-hidden`}>
           <Avatar src={Profile} isCollapsed={isCollapsed} />
           <div
-            className={`${theme.light_text} transition-all shrink-0 duration-100 leading-7`}
+            className={`${theme.text_color} transition-all shrink-0 duration-100 leading-7`}
           >
             <h1
               className={`text-[1.34rem] font-semibold ${
@@ -70,7 +70,7 @@ const SideBar = ({ isCollapsed, toggleSideBar }: CollapsePropsType) => {
             isCollapsed
               ? "translate-x-full rounded-r-full w-7"
               : "rounded-l-full w-8"
-          } bg-green-600 transition-all duration-500`}
+          } ${theme.primary_color.bg} transition-all duration-500`}
         >
           <Chevron
             className={`text-[30px] ${
@@ -80,7 +80,7 @@ const SideBar = ({ isCollapsed, toggleSideBar }: CollapsePropsType) => {
           <div
             className={`absolute h-full w-2 ${
               isCollapsed ? "-z-10" : "translate-x-[18px]"
-            } bg-green-600 rounded-r-full  duration-500`}
+            } ${theme.primary_color.bg} rounded-r-full  duration-500`}
           />
         </button>
       </div>
@@ -105,10 +105,7 @@ const SideBar = ({ isCollapsed, toggleSideBar }: CollapsePropsType) => {
                   3
                 </div>
                 <div
-                  className={`border border-${theme.inactive_color_bg.replace(
-                    "bg-",
-                    ""
-                  )} p-[2px] scale-[0.85] rounded-md`}
+                  className={`border ${theme.border_color} p-[2px] scale-[0.85] rounded-md`}
                 >
                   <PlusIcon className="text-lg " />
                 </div>

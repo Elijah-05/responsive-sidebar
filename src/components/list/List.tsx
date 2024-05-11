@@ -22,19 +22,19 @@ const List = ({
 }: ListPropType) => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  const currentTheme = useAppSelector(({ theme }) => theme);
+  const currentTheme = useAppSelector(({ theme: { theme } }) => theme);
 
   const isActive =
     path && (pathname.split("/").includes(path) || pathname === path);
 
+  const variableStyle = `${currentTheme.primary_color.bg} ${
+    isActive ? "bg-opacity-100" : "hover:bg-opacity-30"
+  } ${isCollapsed ? "px-1 mx-2" : "px-3"} `;
+
   return (
     <div
       onClick={() => path && navigate(path)}
-      className={`relative group py-3 ${
-        currentTheme.active_list_bg
-      } bg-opacity-10 ${isActive ? "bg-opacity-100" : "hover:bg-opacity-30"} ${
-        isCollapsed ? "px-1 mx-2" : "px-3"
-      } flex justify-between items-center cursor-pointer rounded-xl borde border-slate-500 transition-all duration-500`}
+      className={`relative group py-3 bg-opacity-10 ${variableStyle} flex justify-between items-center cursor-pointer rounded-xl borde border-slate-500 transition-all duration-500`}
     >
       <div
         className={`flex gap-3 ${
@@ -44,11 +44,7 @@ const List = ({
         <button
           className={`relative shrink-0 ${
             isCollapsed ? "scale-110 group-hover:scale-[1.35]" : "scale-100"
-          } ${
-            isActive
-              ? currentTheme.active_text_color
-              : currentTheme.inactive_text_color
-          } duration-500`}
+          } ${isActive ? "text-white" : currentTheme.text_color} duration-500`}
         >
           {icon1}
         </button>
@@ -59,12 +55,8 @@ const List = ({
               : "w-auto opacity-100 duration-500 "
           } ${
             isActive
-              ? `${
-                  isCollapsed
-                    ? currentTheme.inactive_text_color
-                    : currentTheme.active_text_color
-                }`
-              : currentTheme.inactive_text_color
+              ? `${isCollapsed ? currentTheme.text_color : "text-white"}`
+              : currentTheme.text_color
           } origin-left`}
         >
           {label}
@@ -74,9 +66,7 @@ const List = ({
         className={`shrink-0 ${
           isCollapsed ? "scale-0 opacity-0" : "scale-100 opacity-100"
         }  ${
-          isActive
-            ? currentTheme.active_text_color
-            : currentTheme.inactive_text_color
+          isActive ? "text-white" : currentTheme.text_color
         } mr-3 duration-500`}
       >
         {icon2}

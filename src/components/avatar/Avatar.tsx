@@ -7,7 +7,7 @@ const Avatar = ({
   src: string;
   isCollapsed: boolean;
 }) => {
-  const currentTheme = useAppSelector(({ theme }) => theme);
+  const currentTheme = useAppSelector(({ theme: { theme } }) => theme);
 
   return (
     <div className="group relative shrink-0 w-[70px] h-[70px] fully-center rounded-full shadow-sm mb-2">

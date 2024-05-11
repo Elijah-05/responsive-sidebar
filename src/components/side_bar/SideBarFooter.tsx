@@ -2,18 +2,19 @@ import { Github, Linkedin, Twitter, WhatsApp } from "../../assets";
 import { useAppSelector } from "../../hooks/type_hooks";
 
 const SideBarFooter = ({ isCollapsed }: { isCollapsed: boolean }) => {
-  const theme = useAppSelector(({ theme }) => theme);
+  const theme = useAppSelector(({ theme: { theme } }) => theme);
 
   return (
     <div
       className={`${
         isCollapsed ? "opacity-0 text-[0rem]" : "text-xs opacity-100"
       } absolute shrink-0 left-0 right-0 bottom-4 px-6 ${
-        theme.inactive_text_color
+        theme.text_color
       } grow transition-all duration-500`}
     >
-      <p className=" opacity-35 text-center">
-        Design & Developed by Elyas Abebe
+      <p className=" opacity-50 text-center">
+        Design & Developed by{" "}
+        <span className={`font-semibold`}>Elyas Abebe</span>
       </p>
       <div
         className={`fully-center ${
