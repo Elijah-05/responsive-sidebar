@@ -1,12 +1,18 @@
 import { useState } from "react";
-import SideBar from "../components/side_bar/SideBar";
 import { Outlet } from "react-router-dom";
+import SideBar from "../components/side_bar/SideBar";
 
 const MasterLayout = () => {
-  const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
+  const localState =
+    localStorage.getItem("isCollapsed") ||
+    localStorage.setItem("isCollapsed", "true");
+  const [isCollapsed, setIsCollapsed] = useState<boolean>(
+    localState === "true" ? true : false
+  );
 
   const handleSideBarToggle = (state: boolean) => {
     setIsCollapsed(state);
+    localStorage.setItem("isCollapsed", JSON.stringify(state));
   };
 
   return (
@@ -17,7 +23,11 @@ const MasterLayout = () => {
           toggleSideBar={handleSideBarToggle}
         />
       </aside>
-      <main className="ml-96 stroke h-screen">
+      <main
+        className={`${
+          isCollapsed ? "ml-32" : "ml-[330px]"
+        } h-screen duration-500 px-8 py-6 shrink-0`}
+      >
         <Outlet />
       </main>
     </div>

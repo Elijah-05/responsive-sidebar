@@ -18,6 +18,7 @@ import {
 import {
   IoIosNotifications as NotificationIcon,
   IoLogoWhatsapp as WhatsApp,
+  IoIosColorPalette as ThemeIcon,
 } from "react-icons/io";
 import { CgArrowsExchangeV as ExchangeIcon } from "react-icons/cg";
 import { FaXTwitter as Twitter } from "react-icons/fa6";
@@ -40,4 +41,5 @@ export {
   Github,
   WhatsApp,
   Twitter,
+  ThemeIcon,
 };

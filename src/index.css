@@ -17,4 +17,9 @@
   .stroke {
     @apply border border-red-500;
   }
+
+  .hideScrollBar::-webkit-scrollbar,
+  .hideScrollBar::-webkit-scrollbar-thumb {
+    display: none;
+  }
 }

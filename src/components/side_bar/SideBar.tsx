@@ -1,31 +1,42 @@
+import { useNavigate } from "react-router-dom";
 import {
   Chevron,
   DashboardIcon,
   ExchangeIcon,
-  Github,
   GraphIcon,
-  Linkedin,
   MessageIcon,
   NotificationIcon,
   PlusIcon,
   Profile,
   SettingIcon,
-  Twitter,
+  ThemeIcon,
   WalletIcon,
-  WhatsApp,
 } from "../../assets";
+import { useAppSelector } from "../../hooks/type_hooks";
 import { CollapsePropsType } from "../../utils/types/types";
 import Avatar from "../avatar/Avatar";
 import List from "../list/List";
 import Search from "../search/Search";
 import ThemeSwitch from "../switch/ThemeSwitch";
+import SideBarFooter from "./SideBarFooter";
 
 const SideBar = ({ isCollapsed, toggleSideBar }: CollapsePropsType) => {
+  const theme = useAppSelector((state) => state.theme);
+  const navigate = useNavigate();
+
+  const handleInnerNavigate = (
+    e: React.MouseEvent<HTMLDivElement, MouseEvent>,
+    path: string
+  ) => {
+    e.stopPropagation();
+    path && navigate(path);
+  };
+
   return (
     <div
-      className={` ${
+      className={`${theme.sidebar_bg} ${
         isCollapsed ? "w-28" : "w-[330px]"
-      } bg-gradient-to-t from-[#08182E] to-[#091A32] fixed h-full top-0 left-0 pt-14 rounded-2xl transition-all duration-500`}
+      }  fixed h-full top-0 left-0 pt-14 rounded-2xl transition-all duration-500`}
     >
       <div
         className={`relative ${
@@ -35,7 +46,7 @@ const SideBar = ({ isCollapsed, toggleSideBar }: CollapsePropsType) => {
         <div className={`flex items-center gap-3 w-[100%] overflow-hidden`}>
           <Avatar src={Profile} isCollapsed={isCollapsed} />
           <div
-            className={`text-white transition-all shrink-0 duration-100 leading-7`}
+            className={`${theme.light_text} transition-all shrink-0 duration-100 leading-7`}
           >
             <h1
               className={`text-[1.34rem] font-semibold ${
@@ -45,7 +56,7 @@ const SideBar = ({ isCollapsed, toggleSideBar }: CollapsePropsType) => {
               Elyas Abebe
             </h1>
             <p
-              className={`text-sm ${
+              className={` text-sm ${
                 isCollapsed ? "text-[0rem] opacity-0" : "opacity-50"
               } duration-500`}
             >
@@ -75,85 +86,79 @@ const SideBar = ({ isCollapsed, toggleSideBar }: CollapsePropsType) => {
       </div>
       <div className={`px-5 mt-10`}>
         <Search isCollapsed={isCollapsed} toggleSideBar={toggleSideBar} />
-        <div className="space-y-3 my-6 ">
+        <div className="space-y-[8px] my-6 ">
           <List
             isCollapsed={isCollapsed}
-            icon1={<DashboardIcon className="text-2xl text-white" />}
+            icon1={<DashboardIcon className={`text-2xl `} />}
             label="Dashboard"
             path="/"
           />
           <List
             isCollapsed={isCollapsed}
-            icon1={<MessageIcon className="text-2xl text-white" />}
+            icon1={<MessageIcon className={`text-2xl `} />}
             icon2={
               <div
-                onClick={(e) => e.stopPropagation()}
+                onClick={(e) => handleInnerNavigate(e, "message/new")}
                 className="flex gap-3 flex-row-reverse"
               >
                 <div className="text-white fully-center bg-red-500 w-6 h-6 scale-[0.83] rounded-full">
                   3
                 </div>
-                <div className="border p-[2px] scale-[0.85] rounded-md">
-                  <PlusIcon className="text-lg text-white" />
+                <div
+                  className={`border border-${theme.inactive_color_bg.replace(
+                    "bg-",
+                    ""
+                  )} p-[2px] scale-[0.85] rounded-md`}
+                >
+                  <PlusIcon className="text-lg " />
                 </div>
               </div>
             }
             label="Message"
             path="message"
+            notifi
           />
           <List
             isCollapsed={isCollapsed}
-            icon1={
-              <NotificationIcon className="text-2xl scale-[1.23] text-white" />
-            }
+            icon1={<NotificationIcon className={`text-2xl scale-[1.23] `} />}
             icon2={
-              <div className="text-white fully-center bg-red-500 w-6 h-6 scale-[0.83] rounded-full">
+              <div className="text-white text-sm fully-center bg-red-500 w-6 h-6 scale-[0.83] rounded-full">
                 7
               </div>
             }
             label="Notification"
             path="notification"
+            notifi
           />
           <List
             isCollapsed={isCollapsed}
-            icon1={<GraphIcon className="text-2xl text-white" />}
+            icon1={<GraphIcon className={`text-2xl `} />}
             label="Statistics"
             path="statistics"
           />
           <List
             isCollapsed={isCollapsed}
-            icon1={<WalletIcon className="text-2xl text-white" />}
-            icon2={<ExchangeIcon className="text-2xl text-white" />}
+            icon1={<WalletIcon className={`text-2xl `} />}
+            icon2={<ExchangeIcon className={`text-2xl `} />}
             label="Wallet"
             path="wallet"
+            notifi
           />
           <List
             isCollapsed={isCollapsed}
-            icon1={<SettingIcon className="text-2xl text-white" />}
+            icon1={<SettingIcon className={`text-2xl `} />}
             label="Settings"
             path="settings"
           />
+          <List
+            isCollapsed={isCollapsed}
+            icon1={<ThemeIcon className={`text-2xl `} />}
+            label="Theme"
+            path="theme"
+          />
         </div>
         <ThemeSwitch isCollapsed={isCollapsed} toggleSideBar={toggleSideBar} />
-        <div
-          className={`${
-            isCollapsed ? "opacity-0 text-[0rem]" : "text-xs opacity-100"
-          } absolute shrink-0 left-0 right-0 bottom-7 px-6 text-white grow transition-all duration-500`}
-        >
-          <p className=" opacity-35 text-center">
-            Design & Developed by Elyas Abebe
-          </p>
-          <div
-            className={`fully-center ${
-              isCollapsed ? "scale-0" : "scale-100"
-            } text-sm mt-3 gap-4 opacity-40 duration-300`}
-          >
-            <Linkedin className="" />
-            <Github className="" />
-            <Twitter className="" />
-            <WhatsApp className="" />
-          </div>
-        </div>
+        <SideBarFooter isCollapsed={isCollapsed} />
       </div>
     </div>
   );

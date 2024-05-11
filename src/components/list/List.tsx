@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useAppSelector } from "../../hooks/type_hooks";
 
 export interface ListPropType {
   isActive?: boolean;
@@ -9,18 +10,30 @@ export interface ListPropType {
   isCollapsed: boolean;
   toggleCollapse?: (state: boolean) => void;
   path?: string;
+  notifi?: boolean;
 }
-const List = ({ icon1, icon2, label, isCollapsed, path }: ListPropType) => {
+const List = ({
+  icon1,
+  icon2,
+  label,
+  isCollapsed,
+  path,
+  notifi,
+}: ListPropType) => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
+  const currentTheme = useAppSelector(({ theme }) => theme);
 
-  const isActive = path === pathname.replace("/", "") || path === pathname;
+  const isActive =
+    path && (pathname.split("/").includes(path) || pathname === path);
 
   return (
     <div
       onClick={() => path && navigate(path)}
-      className={`relative group py-3 px-3 ${
-        isActive ? "bg-blue-600" : "hover:bg-blue-600 hover:bg-opacity-30"
+      className={`relative group py-3 ${
+        currentTheme.active_list_bg
+      } bg-opacity-10 ${isActive ? "bg-opacity-100" : "hover:bg-opacity-30"} ${
+        isCollapsed ? "px-1 mx-2" : "px-3"
       } flex justify-between items-center cursor-pointer rounded-xl borde border-slate-500 transition-all duration-500`}
     >
       <div
@@ -31,15 +44,27 @@ const List = ({ icon1, icon2, label, isCollapsed, path }: ListPropType) => {
         <button
           className={`relative shrink-0 ${
             isCollapsed ? "scale-110 group-hover:scale-[1.35]" : "scale-100"
+          } ${
+            isActive
+              ? currentTheme.active_text_color
+              : currentTheme.inactive_text_color
           } duration-500`}
         >
           {icon1}
         </button>
         <p
-          className={`text-white  ${
+          className={`  ${
             isCollapsed
-              ? "w-0 text-[0rem] opacity-50 group-hover:text-base group-hover:scale-100 group-hover:w-auto group-hover:opacity-100 group-hover:translate-x-11 duration-300"
+              ? `w-0 text-[0rem] opacity-50 group-hover:text-base group-hover:scale-100 group-hover:w-auto group-hover:opacity-100 group-hover:translate-x-11 duration-300`
               : "w-auto opacity-100 duration-500 "
+          } ${
+            isActive
+              ? `${
+                  isCollapsed
+                    ? currentTheme.inactive_text_color
+                    : currentTheme.active_text_color
+                }`
+              : currentTheme.inactive_text_color
           } origin-left`}
         >
           {label}
@@ -48,13 +73,19 @@ const List = ({ icon1, icon2, label, isCollapsed, path }: ListPropType) => {
       <button
         className={`shrink-0 ${
           isCollapsed ? "scale-0 opacity-0" : "scale-100 opacity-100"
+        }  ${
+          isActive
+            ? currentTheme.active_text_color
+            : currentTheme.inactive_text_color
         } mr-3 duration-500`}
       >
         {icon2}
       </button>
       <div
-        className={`absolute right-2 animate-pulse group-hover:animate-none ${
-          isCollapsed ? "-translate-x-3 -translate-y-[11px]" : ""
+        className={`absolute right-0 animate-pulse group-hover:animate-none ${
+          isCollapsed ? "-translate-x-3 -translate-y-[11px]" : "-translate-x-2"
+        } ${
+          !notifi && "hidden"
         } bg-green-500 w-2 h-2 rounded-full duration-300`}
       />
     </div>
