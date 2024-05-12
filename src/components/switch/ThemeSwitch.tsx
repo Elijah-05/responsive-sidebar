@@ -22,17 +22,17 @@ const ThemeSwitch = ({ isCollapsed }: CollapsePropsType) => {
   return (
     <div
       className={`group flex items-center justify-evenly ${
-        isCollapsed ? "h-[64px] scale-[0.8] bottom-6" : "w-auto bottom-20"
+        isCollapsed ? "shrink-0 h-[50px] w-[50px] mx-auto bottom-6" : "w-auto bottom-20 h-12"
       } absolute overflow-hidde left-6 right-6 border-2 ${
         theme.border_color
-      } bg-opacity-5 h-12 grow rounded-full shadow-lg duration-500`}
+      } bg-opacity-5 grow rounded-full shadow-lg duration-500`}
     >
       <button
         onClick={() =>
           dispatch(changeTheme({ isDark: false, theme: themes.lightPalette }))
         }
         className={` w-1/2 ${
-          isCollapsed ? "text-[0rem] scale-0" : "flex scale-100"
+          isCollapsed ? "md:text-[0rem] md:scale-0" : "flex scale-100"
         } ${
           isDark ? "opacity-50" : "opacity-0"
         } shrink-0 flex justify-center items-center gap-4 duration-1000`}
@@ -45,7 +45,7 @@ const ThemeSwitch = ({ isCollapsed }: CollapsePropsType) => {
           dispatch(changeTheme({ isDark: true, theme: themes.nightPalette }))
         }
         className={` w-1/2 ${
-          isCollapsed ? "text-[0rem] scale-0" : "flex scale-100"
+          isCollapsed ? "md:text-[0rem] md:scale-0" : "flex scale-100"
         } ${
           isDark ? "opacity-0" : "opacity-50"
         } shrink-0 flex justify-center items-center gap-4 duration-1000`}
@@ -55,26 +55,26 @@ const ThemeSwitch = ({ isCollapsed }: CollapsePropsType) => {
       </button>
       <button
         onClick={handleToggleTheme}
-        className={`absolute left-0 ${
+        className={`absolute z-50 left-0 top-0 ${
           isCollapsed
-            ? "w-full"
-            : `${isDark ? "translate-x-full" : "translate-x-0"} w-1/2`
+            ? `shrink-0 w-full h-full`
+            : `${isDark ? "translate-x-full" : "translate-x-0"} w-1/2 scale-[0.94]`
         } ${
           theme.primary_color.bg
-        } text-white flex justify-center items-center gap-4 scale-[0.94] h-full rounded-full duration-500 transition-all`}
+        } text-white flex justify-center items-center gap-4 h-full rounded-full duration-500 transition-all`}
       >
         <div className=" fully-center">
           <MoonIcon
             className={`absolute ${isDark ? "opacity-100" : "opacity-0"} ${
               isCollapsed
-                ? `scale-150 ${isDark ? "rotate-[360deg]" : "rotate-0"}`
+                ? ` ${isDark ? "rotate-[360deg]" : "rotate-0"}`
                 : "scale-100"
             } transition-all duration-500`}
           />
           <SunIcon
             className={`text-2xl ${isDark ? "opacity-0" : "opacity-100"} ${
               isCollapsed
-                ? `scale-150 ${isDark ? "rotate-[360deg]" : "rotate-0"}`
+                ? ` ${isDark ? "rotate-[360deg]" : "rotate-0"}`
                 : "scale-100"
             } transition-all duration-500`}
           />
@@ -86,7 +86,7 @@ const ThemeSwitch = ({ isCollapsed }: CollapsePropsType) => {
       <span
         className={`text-xl absolute right-0 ${
           isCollapsed
-            ? "group-hover:translate-x-[105px] group-hover:scale-100 opacity-0 group-hover:opacity-100 scale-0"
+            ? "group-hover:translate-x-[105px] group-hover:scale-100 md:opacity-0 group-hover:opacity-100 scale-0"
             : "hidden"
         } ${theme.text_color} transition-all duration-300`}
       >

@@ -7,7 +7,7 @@ const SideBarFooter = ({ isCollapsed }: { isCollapsed: boolean }) => {
   return (
     <div
       className={`${
-        isCollapsed ? "opacity-0 text-[0rem]" : "text-xs opacity-100"
+        isCollapsed ? "text-xs md:opacity-0 md:text-[0rem]" : "text-xs opacity-100"
       } absolute shrink-0 left-0 right-0 bottom-4 px-6 ${
         theme.text_color
       } grow transition-all duration-500`}
@@ -18,8 +18,8 @@ const SideBarFooter = ({ isCollapsed }: { isCollapsed: boolean }) => {
       </p>
       <div
         className={`fully-center ${
-          isCollapsed ? "scale-0" : "scale-100"
-        } text-sm mt-3 gap-4 opacity-40 duration-300`}
+          isCollapsed ? "md:scale-0" : "scale-100"
+        } text-md mt-3 gap-4 opacity-40 duration-300`}
       >
         <Linkedin className="" />
         <Github className="" />

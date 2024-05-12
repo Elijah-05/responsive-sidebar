@@ -35,12 +35,12 @@ const SideBar = ({ isCollapsed, toggleSideBar }: CollapsePropsType) => {
   return (
     <div
       className={`${theme.sidebar_bg} ${
-        isCollapsed ? "w-28" : "w-[330px]"
-      }  fixed h-full top-0 left-0 pt-14 rounded-2xl transition-all duration-500 shadow-[2px_8px_12px_#00000020]`}
+        isCollapsed ? "-translate-x-[330px] md:translate-x-0 w-[330px] md:w-28" : "w-[330px]"
+      }  fixed z-[99] h-full top-0 left-0 pt-14 rounded-2xl transition-all duration-500 shadow-[2px_8px_12px_#00000020]`}
     >
       <div
         className={`relative ${
-          isCollapsed ? "pl-5" : "pl-6"
+          isCollapsed ? "pl-6 md:pl-5" : "pl-6"
         } transition-all duration-300 `}
       >
         <div className={`flex items-center gap-3 w-[100%] overflow-hidden`}>
@@ -50,14 +50,16 @@ const SideBar = ({ isCollapsed, toggleSideBar }: CollapsePropsType) => {
           >
             <h1
               className={`text-[1.34rem] font-semibold ${
-                isCollapsed ? "text-[0rem] opacity-0" : "opacity-100"
+                isCollapsed ? "md:text-[0rem] md:opacity-0" : "opacity-100"
               } duration-500 tracking-wider`}
             >
               Elyas Abebe
             </h1>
             <p
-              className={` text-sm ${
-                isCollapsed ? "text-[0rem] opacity-0" : "opacity-50"
+              className={` text-md ${
+                isCollapsed
+                  ? "md:text-[0rem] opacity-50 md:opacity-0"
+                  : "opacity-50"
               } duration-500`}
             >
               Front-End Developer
@@ -68,7 +70,7 @@ const SideBar = ({ isCollapsed, toggleSideBar }: CollapsePropsType) => {
           onClick={() => toggleSideBar(!isCollapsed)}
           className={`group absolute h-9 fully-center bottom-1/2 translate-y-1/2 right-0 ${
             isCollapsed
-              ? "translate-x-full rounded-r-full w-7"
+              ? "translate-x-full -mr-[2px] rounded-r-full w-7"
               : "rounded-l-full w-8"
           } ${theme.primary_color.bg} transition-all duration-500`}
         >
@@ -79,7 +81,7 @@ const SideBar = ({ isCollapsed, toggleSideBar }: CollapsePropsType) => {
           />
           <div
             className={`absolute h-full w-2 ${
-              isCollapsed ? "-z-10" : "translate-x-[18px]"
+              isCollapsed ? "-z-10" : "translate-x-[20px]"
             } ${theme.primary_color.bg} rounded-r-full  duration-500`}
           />
         </button>
@@ -119,7 +121,7 @@ const SideBar = ({ isCollapsed, toggleSideBar }: CollapsePropsType) => {
             isCollapsed={isCollapsed}
             icon1={<NotificationIcon className={`text-2xl scale-[1.23] `} />}
             icon2={
-              <div className="text-white text-sm fully-center bg-red-500 w-6 h-6 scale-[0.83] rounded-full">
+              <div className="text-white text-md fully-center bg-red-500 w-6 h-6 scale-[0.83] rounded-full">
                 7
               </div>
             }

@@ -146,7 +146,7 @@ const themes: ThemeTypes = {
     },
     background: "bg-gradient-to-t from-blue-200 from-5% via-20% via-blue-300 to-blue-100",
     sidebar_bg:
-      "border-[3px] border-opacity-0 from-slate-300 via-blue-300 to-slate-300 to-70% bg-opacity-10 border-[3px] border-[#ffffff80]",
+      "border-[3px] border-opacity-0 from-slate-300 via-blue-300 to-slate-300 to-70% bg-opacity-10 border-[3px] border-[#ffffff80] backdrop-blur-[3px]",
 
     text_color: "text-slate-800",
     border_color: "border-slate-400",

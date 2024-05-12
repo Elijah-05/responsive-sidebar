@@ -24,14 +24,14 @@ const Search = ({ isCollapsed, toggleSideBar }: CollapsePropsType) => {
       <SearchIcon
         onClick={() => isCollapsed && handleExpandSearch()}
         className={` mt-[2px] ml-[2px] ${currentTheme.text_color} ${
-          isCollapsed && "scale-150 translate-x-1/2"
+          isCollapsed && "scale-125 md:scale-150 md:translate-x-1/2"
         } transition-all duration-500`}
       />
       <input
         ref={inputRef}
         type="text"
         className={`${
-          isCollapsed ? "w-0 opacity-0" : "w-full opacity-100"
+          isCollapsed ? "md:w-0 md:opacity-0" : "w-full opacity-100"
         } bg-transparent h-full placeholder:${
           currentTheme.text_color
         } duration-300 ${
@@ -44,7 +44,7 @@ const Search = ({ isCollapsed, toggleSideBar }: CollapsePropsType) => {
       <span
         className={`absolute scale-0 opacity-0 ${
           isCollapsed &&
-          "group-hover:scale-100 group-hover:opacity-100 group-hover: group-hover:translate-x-[86px]"
+          "group-hover:md:scale-100 group-hover:md:opacity-100 group-hover:md:translate-x-[86px]"
         } ${currentTheme.text_color} duration-300`}
       >
         Search

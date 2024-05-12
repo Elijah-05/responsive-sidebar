@@ -12,7 +12,7 @@ const initialState: ThemeStateType = {
   theme: themes.lightPalette,
 };
 
-const themeSlice = createSlice({
+export const themeSlice = createSlice({
   name: "theme",
   initialState,
   reducers: {
