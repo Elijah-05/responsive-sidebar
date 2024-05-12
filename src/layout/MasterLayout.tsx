@@ -26,7 +26,7 @@ const MasterLayout = () => {
       <main
         className={`${
           isCollapsed ? "ml-32" : "ml-[330px]"
-        } h-screen duration-500 px-8 py-6 shrink-0`}
+        } min-h-screen duration-500 px-8 py-6 shrink-0 `}
       >
         <Outlet />
       </main>

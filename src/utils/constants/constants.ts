@@ -3,46 +3,63 @@ import { ThemeTypes } from "../types/types";
 const themes: ThemeTypes = {
   lightPalette: {
     primary_color: {
-      bg: "bg-green-500",
-      text: "text-green-500",
-      border: "border-green-500",
+      bg: "bg-blue-500",
+      text: "text-blue-500",
+      border: "border-blue-500",
     },
-    background: "bg-slate-300",
-    sidebar_bg: "bg-slate-100",
+    background: "bg-slate-200",
+    sidebar_bg:
+      "border-[3px] border-slate-100 bg-gradient-to-t from-slate-100 to-slate-100",
 
     text_color: "text-slate-700",
     border_color: "border-slate-300",
-    profile_ring: "bg-gradient-to-t from-[#00ff0050] to-green-500",
+    profile_ring: "bg-gradient-to-t from-[#0000ff20] to-blue-500",
     indicator_color: "bg-",
   },
 
-  darkPalette: {
+  green: {
+    primary_color: {
+      bg: "bg-[#38b000]",
+      text: "text-[#38b000]",
+      border: "border-[#38b000]",
+    },
+    background: "bg-[#38b00030]",
+    sidebar_bg: "border-[3px] border-slate-50 bg-slate-50",
+
+    text_color: "text-slate-700",
+    border_color: "border-slate-300",
+    profile_ring: "bg-gradient-to-t from-[#38b00020] to-[#38b000]",
+    indicator_color: "bg-",
+  },
+
+  nightPalette: {
+    primary_color: {
+      bg: "bg-slate-600",
+      text: "text-slate-600",
+      border: "border-slate-600",
+    },
+    background: "bg-[#232323]",
+    sidebar_bg:
+      "border-[3px] border-[#111111] bg-gradient-to-t from-[#111111] to-[#111111]",
+
+    text_color: "text-slate-100",
+    border_color: "border-slate-900",
+    profile_ring: "bg-gradient-to-t from-[#ffffff20] to-slate-200",
+    indicator_color: "bg-",
+  },
+  darkBlue: {
     primary_color: {
       bg: "bg-blue-600",
       text: "text-blue-600",
       border: "border-blue-500",
     },
     background: "bg-slate-700",
-    sidebar_bg: "bg-gradient-to-t from-[#08182E] to-[#091A32]",
+    sidebar_bg:
+      "border-[3px] border-[#0000ff10] bg-gradient-to-t from-[#08182E] to-[#091A32]",
 
     text_color: "text-slate-100",
-    border_color: "border-blue-900",
+    border_color: "border-slate-900",
     profile_ring: "bg-gradient-to-t from-[#0000ff50] to-blue-600",
-    indicator_color: "bg-",
-  },
-
-  transparentPalette: {
-    primary_color: {
-      bg: "bg-green-500",
-      text: "text-green-500",
-      border: "border-green-500",
-    },
-    background: "bg-slate-700",
-    sidebar_bg: "bg-gradient-to-t from-[#08182E] to-[#091A32]",
-
-    text_color: "text-white",
-    border_color: "border-slate-300",
-    profile_ring: "bg-gradient from-transparent to-blue-600",
     indicator_color: "bg-",
   },
 
@@ -52,66 +69,90 @@ const themes: ThemeTypes = {
       text: "text-[#00C5FF]",
       border: "border-[#00C5FF]",
     },
-    background: "bg-slate-700",
-    sidebar_bg: "bg-gradient-to-t from-[#322214] to-[#322214]",
-
-    text_color: "text-white",
-    border_color: "border-slate-700",
-    profile_ring: "bg-gradient-to-t from-[#00ff0050] to-[#00C5FF]",
-    indicator_color: "bg-",
-  },
-
-  glass: {
-    primary_color: {
-      bg: "bg-[#D02FA4]",
-      text: "text-[#D02FA4]",
-      border: "border-[#D02FA4]",
-    },
-    background: "bg-slate-200",
-    sidebar_bg:
-      "bg-gradient-to-t from-[rgba(255,255,255,0.5)] to-[rgba(255,255,255,0.3)] bg-blur-md",
+    background: "bg-[#00C5FF30]",
+    sidebar_bg: "border-[3px] border-slate-50 bg-slate-50",
 
     text_color: "text-slate-700",
     border_color: "border-slate-300",
-    profile_ring: "bg-gradient-to-t from-[#D02FA470] to-[#D02FA4]",
+    profile_ring: "bg-gradient-to-t from-[#00C5FF20] to-[#00C5FF]",
     indicator_color: "bg-",
   },
 
-  // lightPalette: {
-  //   main_bg: "bg-slate-300",
-  //   sidebar_bg: "bg-slate-100",
-  //   active_list_bg: "bg-slate-600",
-  //   hover_list_bg: "group-hover:bg-[]",
+  turquoise: {
+    primary_color: {
+      bg: "bg-[#02c39a]",
+      text: "text-[#02c39a]",
+      border: "border-[#02c39a]",
+    },
+    background: "bg-[#02c39a30]",
+    sidebar_bg: "border-[3px] border-slate-50 bg-slate-50",
 
-  //   profile_ring:
-  //     "bg-gradient-to-tr from-40% from-[rgba(250,250,250,0.3)] to-white",
+    text_color: "text-slate-700",
+    border_color: "border-slate-300",
+    profile_ring: "bg-gradient-to-t from-[#02c39a20] to-[#02c39a]",
+    indicator_color: "bg-",
+  },
 
-  //   active_color_bg: "bg-",
-  //   active_text_color: "text-slate-50",
-  //   inactive_color_bg: "bg-slate-500",
-  //   inactive_text_color: "text-slate-500",
+  coralPink: {
+    primary_color: {
+      bg: "bg-[#ff4d6d]",
+      text: "text-[#ff4d6d]",
+      border: "border-[#ff4d6d]",
+    },
+    background: "bg-[#ff4d6d30]",
+    sidebar_bg:
+      "border-[3px] border-slate-50 bg-gradient-to-t from-slate-100 to-slate-50 bg-blur-md",
 
-  //   light_text: "text-slate-800",
-  //   fade_text: "text-[]",
-  // },
+    text_color: "text-slate-700",
+    border_color: "border-slate-300",
+    profile_ring: "bg-gradient-to-t from-[#ff4d6d20] to-[#ff4d6d]",
+    indicator_color: "bg-",
+  },
+  orange: {
+    primary_color: {
+      bg: "bg-[#fb5607]",
+      text: "text-[#fb5607]",
+      border: "border-[#fb5607]",
+    },
+    background: "bg-[#fb560730]",
+    sidebar_bg:
+      "border-[3px] border-slate-50 bg-gradient-to-t from-slate-100 to-slate-50 bg-blur-md",
 
-  // darkPalette: {
-  //   main_bg: "bg-slate-700",
-  //   sidebar_bg: "bg-gradient-to-t from-[#08182E] to-[#091A32]",
-  //   active_list_bg: "bg-blue-600",
-  //   hover_list_bg: "group-hover:bg-[]",
+    text_color: "text-slate-700",
+    border_color: "border-slate-300",
+    profile_ring: "bg-gradient-to-t from-[#fb560720] to-[#fb5607]",
+    indicator_color: "bg-",
+  },
+  violet: {
+    primary_color: {
+      bg: "bg-[#5a189a]",
+      text: "text-[#5a189a]",
+      border: "border-[#5a189a]",
+    },
+    background: "bg-[#10002b99]",
+    sidebar_bg:
+      "border-[3px] border-[#5a189a10] bg-gradient-to-t from-[#10002b] to-[#10002b] bg-blur-md",
 
-  //   profile_ring:
-  //     "bg-gradient-to-tr from-40% from-[rgba(250,250,250,0.3)] to-white",
+    text_color: "text-slate-200",
+    border_color: "border-slate-700",
+    profile_ring: "bg-gradient-to-t from-[#5a189a20] to-[#5a189a]",
+    indicator_color: "bg-",
+  },
+  glass: {
+    primary_color: {
+      bg: "bg-[#5a189a]",
+      text: "text-[#5a189a]",
+      border: "border-[#5a189a]",
+    },
+    background: "bg-gradient-to-t from-blue-200 from-5% via-20% via-blue-300 to-blue-100",
+    sidebar_bg:
+      "border-[3px] border-opacity-0 from-slate-300 via-blue-300 to-slate-300 to-70% bg-opacity-10 border-[3px] border-[#ffffff80]",
 
-  //   active_color_bg: "bg-",
-  //   active_text_color: "text-white",
-  //   inactive_color_bg: "bg-slate-50",
-  //   inactive_text_color: "text-slate-50",
-
-  //   light_text: "text-slate-50",
-  //   fade_text: "text-[]",
-  // },
+    text_color: "text-slate-800",
+    border_color: "border-slate-400",
+    profile_ring: "bg-gradient-to-t from-slate-300 via-blue-300 to-slate-300",
+    indicator_color: "bg-",
+  },
 };
 
 export { themes };

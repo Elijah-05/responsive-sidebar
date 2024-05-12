@@ -23,19 +23,44 @@ const ThemePage = () => {
           onClick={() => switchTheme(themes.lightPalette, false)}
         />
         <ThemeCard
-          color="bg-[#091A32]"
-          label="Dark Blue"
-          onClick={() => switchTheme(themes.darkPalette, true)}
+          color="bg-[#38b000]"
+          label="Green"
+          onClick={() => switchTheme(themes.green, false)}
+        />
+        <ThemeCard
+          color="bg-[#02c39a]"
+          label="Turquoise"
+          onClick={() => switchTheme(themes.turquoise, false)}
         />
         <ThemeCard
           color="bg-[#12D2ED]"
-          label="Yellow"
-          onClick={() => switchTheme(themes.aqua, true)}
+          label="Light Cyan"
+          onClick={() => switchTheme(themes.aqua, false)}
         />
         <ThemeCard
-          color="bg-[#D02FA4]"
+          color="bg-[#ff4d6d]"
+          label="Coral Pink"
+          onClick={() => switchTheme(themes.coralPink, false)}
+        />
+        <ThemeCard
+          color="bg-[#fb5607]"
+          label="Orange"
+          onClick={() => switchTheme(themes.orange, false)}
+        />
+        <ThemeCard
+          color="bg-[#5a189a]"
+          label="Violet"
+          onClick={() => switchTheme(themes.violet, true)}
+        />
+        <ThemeCard
+          color="bg-[#091A32]"
+          label="Dark Blue"
+          onClick={() => switchTheme(themes.darkBlue, true)}
+        />
+        <ThemeCard
+          color="bg-slate-50 bg-opacity-20"
           label="Glass"
-          onClick={() => switchTheme(themes.glass, true)}
+          onClick={() => switchTheme(themes.glass, false)}
         />
       </div>
     </div>

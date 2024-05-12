@@ -7,7 +7,7 @@ const App = () => {
   const theme = useAppSelector(({ theme: { theme } }) => theme);
 
   return (
-    <div className={`min-h-screen ${theme.background}`}>
+    <div className={` ${theme.background}`}>
       <Routes>
         <Route path="/*" element={<MasterLayout />}>
           <Route

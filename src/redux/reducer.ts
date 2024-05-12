@@ -9,7 +9,7 @@ interface ThemeStateType {
 
 const initialState: ThemeStateType = {
   isDark: false,
-  theme: themes.lightPalette,
+  theme: themes.nightPalette,
 };
 
 const themeSlice = createSlice({

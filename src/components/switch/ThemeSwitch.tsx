@@ -9,13 +9,14 @@ const ThemeSwitch = ({ isCollapsed }: CollapsePropsType) => {
   const dispatch = useAppDispatch();
 
   const handleToggleTheme = () => {
-    dispatch(
-      changeTheme(
-        isDark
-          ? { isDark: false, theme: themes.lightPalette }
-          : { isDark: true, theme: themes.darkPalette }
-      )
-    );
+    isCollapsed &&
+      dispatch(
+        changeTheme(
+          isDark
+            ? { isDark: false, theme: themes.lightPalette }
+            : { isDark: true, theme: themes.nightPalette }
+        )
+      );
   };
 
   return (
@@ -41,7 +42,7 @@ const ThemeSwitch = ({ isCollapsed }: CollapsePropsType) => {
       </button>
       <button
         onClick={() =>
-          dispatch(changeTheme({ isDark: true, theme: themes.darkPalette }))
+          dispatch(changeTheme({ isDark: true, theme: themes.nightPalette }))
         }
         className={` w-1/2 ${
           isCollapsed ? "text-[0rem] scale-0" : "flex scale-100"

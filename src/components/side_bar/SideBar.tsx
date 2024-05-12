@@ -36,7 +36,7 @@ const SideBar = ({ isCollapsed, toggleSideBar }: CollapsePropsType) => {
     <div
       className={`${theme.sidebar_bg} ${
         isCollapsed ? "w-28" : "w-[330px]"
-      }  fixed h-full top-0 left-0 pt-14 rounded-2xl transition-all duration-500`}
+      }  fixed h-full top-0 left-0 pt-14 rounded-2xl transition-all duration-500 shadow-[2px_8px_12px_#00000020]`}
     >
       <div
         className={`relative ${
