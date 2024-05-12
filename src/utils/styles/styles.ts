@@ -4,7 +4,7 @@ import { ThemePropTypes } from "../types/types";
 
 const useStyles = () => {
   const [theme, setSelectedTheme] = useState<ThemePropTypes>(
-    themes.darkPalette
+    themes.nightPalette
   );
 
   const changeTheme = (newTheme: ThemePropTypes) => {
