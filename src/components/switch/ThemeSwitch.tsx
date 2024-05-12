@@ -21,9 +21,11 @@ const ThemeSwitch = ({ isCollapsed }: CollapsePropsType) => {
 
   return (
     <div
-      className={`group flex items-center justify-evenly ${
-        isCollapsed ? "shrink-0 h-[50px] w-[50px] mx-auto bottom-6" : "w-auto bottom-20 h-12"
-      } absolute overflow-hidde left-6 right-6 border-2 ${
+      className={`group relative flex items-center justify-evenly mx-6 ${
+        isCollapsed
+          ? "shrink-0 h-[50px] w-[50px] mx-auto"
+          : "w-fu h-12"
+      }  overflow-hidden border-2 ${
         theme.border_color
       } bg-opacity-5 grow rounded-full shadow-lg duration-500`}
     >
@@ -58,7 +60,9 @@ const ThemeSwitch = ({ isCollapsed }: CollapsePropsType) => {
         className={`absolute z-50 left-0 top-0 ${
           isCollapsed
             ? `shrink-0 w-full h-full`
-            : `${isDark ? "translate-x-full" : "translate-x-0"} w-1/2 scale-[0.94]`
+            : `${
+                isDark ? "translate-x-full" : "translate-x-0"
+              } w-1/2 scale-[0.94]`
         } ${
           theme.primary_color.bg
         } text-white flex justify-center items-center gap-4 h-full rounded-full duration-500 transition-all`}

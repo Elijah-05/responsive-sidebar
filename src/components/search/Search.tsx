@@ -15,7 +15,7 @@ const Search = ({ isCollapsed, toggleSideBar }: CollapsePropsType) => {
 
   return (
     <div
-      className={`${currentTheme.primary_color.bg}  bg-opacity-10 group ${
+      className={`${currentTheme.primary_color.bg} mx-4 bg-opacity-10 group ${
         isInputFocused
           ? `border-t-2 border-b-2 ${currentTheme.primary_color.border}`
           : "border-t-0 border-b-2 border-slate-500"

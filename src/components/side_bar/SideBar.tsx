@@ -35,13 +35,15 @@ const SideBar = ({ isCollapsed, toggleSideBar }: CollapsePropsType) => {
   return (
     <div
       className={`${theme.sidebar_bg} ${
-        isCollapsed ? "-translate-x-[330px] md:translate-x-0 w-[330px] md:w-28" : "w-[330px]"
-      }  fixed z-[99] h-full top-0 left-0 pt-14 rounded-2xl transition-all duration-500 shadow-[2px_8px_12px_#00000020]`}
+        isCollapsed
+          ? "-translate-x-[330px] md:translate-x-0 w-[330px] md:w-28"
+          : "w-[330px]"
+      }  fixed z-[99] h-screen top-0 left-0 pt-14 rounded-2xl transition-all duration-500 shadow-[2px_8px_12px_#00000020]`}
     >
       <div
         className={`relative ${
           isCollapsed ? "pl-6 md:pl-5" : "pl-6"
-        } transition-all duration-300 `}
+        } transition-all duration-300 mb-4`}
       >
         <div className={`flex items-center gap-3 w-[100%] overflow-hidden`}>
           <Avatar src={Profile} isCollapsed={isCollapsed} />
@@ -86,9 +88,11 @@ const SideBar = ({ isCollapsed, toggleSideBar }: CollapsePropsType) => {
           />
         </button>
       </div>
-      <div className={`px-5 mt-10`}>
+      <div className="pb-1 drop-shadow-md">
         <Search isCollapsed={isCollapsed} toggleSideBar={toggleSideBar} />
-        <div className="space-y-[8px] my-6 ">
+      </div>
+      <div className=" h-full flex flex-col justify-between gap-y-10 overflow-y-scroll hideScrollBar ">
+        <div className="space-y-[8px] my-6 px-5 mt-6 ">
           <List
             isCollapsed={isCollapsed}
             icon1={<DashboardIcon className={`text-2xl `} />}
@@ -156,8 +160,13 @@ const SideBar = ({ isCollapsed, toggleSideBar }: CollapsePropsType) => {
             path="theme"
           />
         </div>
-        <ThemeSwitch isCollapsed={isCollapsed} toggleSideBar={toggleSideBar} />
-        <SideBarFooter isCollapsed={isCollapsed} />
+        <div className="sm:pb-40">
+          <ThemeSwitch
+            isCollapsed={isCollapsed}
+            toggleSideBar={toggleSideBar}
+          />
+          <SideBarFooter isCollapsed={isCollapsed} />
+        </div>
       </div>
     </div>
   );
