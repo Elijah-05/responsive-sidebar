@@ -1,7 +1,8 @@
-import { Routes, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import { useAppSelector } from "./hooks/type_hooks";
 import MasterLayout from "./layout/MasterLayout";
 import ThemePage from "./pages/theme_page/ThemePage";
-import { useAppSelector } from "./hooks/type_hooks";
+import Page from "./pages/Page";
 
 const App = () => {
   const theme = useAppSelector(({ theme: { theme } }) => theme);
@@ -10,62 +11,13 @@ const App = () => {
     <div className={` ${theme.background}`}>
       <Routes>
         <Route path="/*" element={<MasterLayout />}>
-          <Route
-            index
-            element={
-              <div className={`${theme.text_color} text-3xl font-semibold`}>
-                Dashboard
-              </div>
-            }
-          />
-          <Route
-            path="message"
-            element={
-              <div className={`${theme.text_color} text-3xl font-semibold`}>
-                Message
-              </div>
-            }
-          />
-          <Route
-            path="message/new"
-            element={
-              <div className={`${theme.text_color} text-3xl font-semibold`}>
-                New Message
-              </div>
-            }
-          />
-          <Route
-            path="notification"
-            element={
-              <div className={`${theme.text_color} text-3xl font-semibold`}>
-                Notification
-              </div>
-            }
-          />
-          <Route
-            path="statistics"
-            element={
-              <div className={`${theme.text_color} text-3xl font-semibold`}>
-                Statistics
-              </div>
-            }
-          />
-          <Route
-            path="wallet"
-            element={
-              <div className={`${theme.text_color} text-3xl font-semibold`}>
-                Wallet
-              </div>
-            }
-          />
-          <Route
-            path="settings"
-            element={
-              <div className={`${theme.text_color} text-3xl font-semibold`}>
-                Settings
-              </div>
-            }
-          />
+          <Route index element={<Page name="Dashboard" />} />
+          <Route path="message" element={<Page name="Message" />} />
+          <Route path="message/new" element={<Page name="New Message" />} />
+          <Route path="notification" element={<Page name="Notifications" />} />
+          <Route path="statistics" element={<Page name="Statistics" />} />
+          <Route path="wallet" element={<Page name="Wallet" />} />
+          <Route path="settings" element={<Page name="Settings" />} />
           <Route path="theme" element={<ThemePage />} />
         </Route>
       </Routes>
