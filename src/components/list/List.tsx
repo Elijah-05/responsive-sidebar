@@ -73,7 +73,7 @@ const List = ({
       </button>
       <div
         className={`absolute right-0 animate-pulse group-hover:animate-none ${
-          isCollapsed ? "-translate-x-3 -translate-y-[11px]" : "-translate-x-2"
+          isCollapsed ? "-translate-x-1 -translate-y-[16px]" : "-translate-x-2"
         } ${
           !notifi && "hidden"
         } bg-green-500 w-2 h-2 rounded-full duration-300`}

@@ -28,24 +28,31 @@ const ThemePage = () => {
           onClick={() => switchTheme(themes.green, false)}
         />
         <ThemeCard
+          color="bg-[#fb5607]"
+          label="Orange"
+          onClick={() => switchTheme(themes.orange, false)}
+        />
+        <ThemeCard
           color="bg-[#02c39a]"
           label="Turquoise"
           onClick={() => switchTheme(themes.turquoise, false)}
         />
-        <ThemeCard
-          color="bg-[#12D2ED]"
-          label="Light Cyan"
-          onClick={() => switchTheme(themes.aqua, false)}
-        />
+
         <ThemeCard
           color="bg-[#ff4d6d]"
           label="Coral Pink"
           onClick={() => switchTheme(themes.coralPink, false)}
         />
         <ThemeCard
-          color="bg-[#fb5607]"
-          label="Orange"
-          onClick={() => switchTheme(themes.orange, false)}
+          color="bg-[#12D2ED]"
+          label="Light Cyan"
+          onClick={() => switchTheme(themes.aqua, false)}
+        />
+
+        <ThemeCard
+          color="bg-slate-50 bg-opacity-20"
+          label="Glass"
+          onClick={() => switchTheme(themes.glass, false)}
         />
         <ThemeCard
           color="bg-[#5a189a]"
@@ -56,11 +63,6 @@ const ThemePage = () => {
           color="bg-[#091A32]"
           label="Dark Blue"
           onClick={() => switchTheme(themes.darkBlue, true)}
-        />
-        <ThemeCard
-          color="bg-slate-50 bg-opacity-20"
-          label="Glass"
-          onClick={() => switchTheme(themes.glass, false)}
         />
       </div>
     </div>
