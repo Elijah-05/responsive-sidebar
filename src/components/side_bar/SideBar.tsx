@@ -141,7 +141,7 @@ const SideBar = ({ isCollapsed, toggleSideBar }: CollapsePropsType) => {
           />
           <List
             isCollapsed={isCollapsed}
-            icon1={<WalletIcon className={`text-2xl `} />}
+            icon1={<WalletIcon className={`text-[22px] `} />}
             icon2={<ExchangeIcon className={`text-2xl `} />}
             label="Wallet"
             path="wallet"

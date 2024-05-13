@@ -29,7 +29,7 @@ const List = ({
 
   const variableStyle = `${currentTheme.primary_color.bg} ${
     isActive ? "bg-opacity-100" : "hover:bg-opacity-30"
-  } ${isCollapsed ? "px-3 px-1 mx-2" : "px-3"} `;
+  } ${isCollapsed ? "px-1 mx-2" : "px-3"} `;
 
   return (
     <div
