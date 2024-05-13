@@ -38,7 +38,7 @@ const SideBar = ({ isCollapsed, toggleSideBar }: CollapsePropsType) => {
         isCollapsed
           ? "-translate-x-[330px] md:translate-x-0 w-[330px] md:w-28"
           : "w-[330px]"
-      }  fixed z-[99] h-screen top-0 left-0 pt-14 rounded-2xl transition-all duration-500 shadow-[2px_8px_12px_#00000020]`}
+      }  fixed z-50 h-screen top-0 left-0 pt-14 rounded-2xl transition-all duration-500 shadow-[2px_8px_12px_#00000020]`}
     >
       <div
         className={`relative ${

@@ -22,7 +22,7 @@ const ThemeSwitch = ({ isCollapsed }: CollapsePropsType) => {
   return (
     <div
       className={`group relative flex items-center justify-evenly ${
-        isCollapsed ? "shrink-0 h-[50px] w-[50px] mx-auto" : "w-full h-12"
+        isCollapsed ? "shrink-0 h-[50px] w-[50px] mx-auto hover:scale-110" : "w-full h-12"
       }  overflow-hidden border-2 ${
         theme.border_color
       } bg-opacity-5 grow rounded-full shadow-lg duration-500`}
@@ -88,7 +88,7 @@ const ThemeSwitch = ({ isCollapsed }: CollapsePropsType) => {
       <span
         className={`text-xl absolute right-0 ${
           isCollapsed
-            ? "group-hover:translate-x-[105px] group-hover:scale-100 md:opacity-0 group-hover:opacity-100 scale-0"
+            ? "group-hover: translate-x-[105px] group-hover: scale-100 md:opacity-0 group-hover: opacity-100 s cale-0"
             : "hidden"
         } ${theme.text_color} transition-all duration-300`}
       >

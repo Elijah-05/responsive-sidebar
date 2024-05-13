@@ -15,23 +15,23 @@ const Search = ({ isCollapsed, toggleSideBar }: CollapsePropsType) => {
 
   return (
     <div
-      className={`${currentTheme.primary_color.bg} mx-4 bg-opacity-10 group ${
+      className={`${currentTheme.primary_color.bg} group mx-4 bg-opacity-10 group ${
         isInputFocused
           ? `border-t-2 border-b-2 ${currentTheme.primary_color.border}`
           : "border-t-0 border-b-2 border-slate-500"
-      } flex items-center gap-2 px-4 h-12 rounded-3xl shadow-inner transition-all duration-300`}
+      } flex items-center gap-2 px-4 h-12 rounded-3xl shadow-inner cursor-pointer transition-all duration-300`}
     >
       <SearchIcon
         onClick={() => isCollapsed && handleExpandSearch()}
         className={` mt-[2px] ml-[2px] ${currentTheme.text_color} ${
-          isCollapsed && "scale-125 md:scale-150 md:translate-x-1/2"
+          isCollapsed && "ml-[4px] scale-125 group-hover:scale-150 translate-x-1/2"
         } transition-all duration-500`}
       />
       <input
         ref={inputRef}
         type="text"
         className={`${
-          isCollapsed ? "md:w-0 md:opacity-0" : "w-full opacity-100"
+          isCollapsed ? "w-0 opacity-0" : "w-full opacity-100"
         } bg-transparent h-full placeholder:${
           currentTheme.text_color
         } duration-300 ${
@@ -41,14 +41,14 @@ const Search = ({ isCollapsed, toggleSideBar }: CollapsePropsType) => {
         onFocus={() => setInputFocused(true)}
         onBlur={() => setInputFocused(false)}
       />
-      <span
+      {/* <span
         className={`absolute scale-0 opacity-0 ${
           isCollapsed &&
-          "group-hover:md:scale-100 group-hover:md:opacity-100 group-hover:md:translate-x-[86px]"
+          "group-hover:scale-100 group-hover:opacity-100 group-hover:translate-x-[86px]"
         } ${currentTheme.text_color} duration-300`}
       >
         Search
-      </span>
+      </span> */}
     </div>
   );
 };

@@ -29,7 +29,7 @@ const List = ({
 
   const variableStyle = `${currentTheme.primary_color.bg} ${
     isActive ? "bg-opacity-100" : "hover:bg-opacity-30"
-  } ${isCollapsed ? "px-3 md:px-1 md:mx-2" : "px-3"} `;
+  } ${isCollapsed ? "px-3 px-1 mx-2" : "px-3"} `;
 
   return (
     <div
@@ -38,7 +38,7 @@ const List = ({
     >
       <div
         className={`flex gap-3 ${
-          isCollapsed ? "md:translate-x-[10px] gap-0 hover:md:overflow-visible" : ""
+          isCollapsed ? "translate-x-[10px] gap-0 hover:overflow-visible" : ""
         } items-center duration-500`}
       >
         <button
@@ -51,7 +51,7 @@ const List = ({
         <p
           className={`  ${
             isCollapsed
-              ? `md:w-0 md:text-[0rem] md:opacity-50 group-hover:md:text-base group-hover:md:scale-100 group-hover:md:w-auto group-hover:md:opacity-100 group-hover:md:translate-x-11 duration-300`
+              ? `w-0 text-[0rem] opacity-50 duration-300`
               : "w-auto opacity-100 duration-500 "
           } ${
             isActive
@@ -64,7 +64,7 @@ const List = ({
       </div>
       <button
         className={`shrink-0 ${
-          isCollapsed ? "md:scale-0 md:opacity-0" : "scale-100 opacity-100"
+          isCollapsed ? "scale-0 opacity-0" : "scale-100 opacity-100"
         }  ${
           isActive ? "text-white" : currentTheme.text_color
         } mr-3 duration-500`}
@@ -73,7 +73,9 @@ const List = ({
       </button>
       <div
         className={`absolute right-0 animate-pulse group-hover:animate-none ${
-          isCollapsed ? "-translate-x-[5px] md:-translate-x-1 -translate-y-[12px] md:-translate-y-[16px]" : "-translate-x-2"
+          isCollapsed
+            ? "-translate-x-[5px] -translate-x-1 -translate-y-[12px] -translate-y-[16px]"
+            : "-translate-x-2"
         } ${
           !notifi && "hidden"
         } bg-green-500 w-2 h-2 rounded-full duration-300`}
