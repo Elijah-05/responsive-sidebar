@@ -37,12 +37,12 @@ const SideBar = ({ isCollapsed, toggleSideBar }: CollapsePropsType) => {
       className={`${theme.sidebar_bg} ${
         isCollapsed
           ? "-translate-x-[330px] md:translate-x-0 w-[330px] md:w-28"
-          : "w-[330px]"
-      }  fixed z-50 h-screen top-0 left-0 pt-14 rounded-2xl transition-all duration-500 shadow-[2px_8px_12px_#00000020]`}
+          : "max-w-[330px] md:w-[330px]"
+      }  fixed z-50 h-screen top-0 left-0 pt-6 md:pt-14 rounded-2xl transition-all duration-500 shadow-[2px_8px_12px_#00000020]`}
     >
       <div
         className={`relative ${
-          isCollapsed ? "pl-6 md:pl-5" : "pl-6"
+          isCollapsed ? "pl-6 md:pl-5" : "pl-2 md:pl-6"
         } transition-all duration-300 mb-4`}
       >
         <div className={`flex items-center gap-3 w-[100%] overflow-hidden`}>
@@ -88,11 +88,11 @@ const SideBar = ({ isCollapsed, toggleSideBar }: CollapsePropsType) => {
           />
         </button>
       </div>
-      <div className="pb-1 drop-shadow-md">
+      <div className="pb-1 px-2 md:px-4 drop-shadow-md">
         <Search isCollapsed={isCollapsed} toggleSideBar={toggleSideBar} />
       </div>
       <div className=" h-full flex flex-col justify-between gap-y-10 overflow-y-scroll hideScrollBar ">
-        <div className="space-y-[8px] my-6 px-5 mt-6 ">
+        <div className="space-y-[8px] my-6 px-3 md:px-5 mt-6 ">
           <List
             isCollapsed={isCollapsed}
             icon1={<DashboardIcon className={`text-2xl `} />}
@@ -160,7 +160,7 @@ const SideBar = ({ isCollapsed, toggleSideBar }: CollapsePropsType) => {
             path="theme"
           />
         </div>
-        <div className="pb-40 sm:b-36 px-6">
+        <div className="pb-40 sm:b-36 px-3 md:px-6">
           <ThemeSwitch
             isCollapsed={isCollapsed}
             toggleSideBar={toggleSideBar}
