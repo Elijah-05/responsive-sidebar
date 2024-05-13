@@ -7,7 +7,7 @@ const SideBarFooter = ({ isCollapsed }: { isCollapsed: boolean }) => {
   return (
     <div
       className={`${
-        isCollapsed ? "text-xs md:opacity-0 md:text-[0rem]" : "text-xs opacity-100"
+        isCollapsed ? "text-xs md:opacity-0 md:text-[0rem] sm:-m-3" : "text-xs opacity-100"
       } shrink-0 left-0 mt-4 px-6 ${
         theme.text_color
       } grow transition-all duration-500`}
