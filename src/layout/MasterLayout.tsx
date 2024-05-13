@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import SideBar from "../components/side_bar/SideBar";
 
+
 const MasterLayout = () => {
   const localState =
     localStorage.getItem("isCollapsed") ||
