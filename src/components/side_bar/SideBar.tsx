@@ -160,7 +160,7 @@ const SideBar = ({ isCollapsed, toggleSideBar }: CollapsePropsType) => {
             path="theme"
           />
         </div>
-        <div className="pb-44 sm:pb-36 px-3 md:px-6">
+        <div className="pb-40 px-3 md:px-6">
           <ThemeSwitch
             isCollapsed={isCollapsed}
             toggleSideBar={toggleSideBar}
